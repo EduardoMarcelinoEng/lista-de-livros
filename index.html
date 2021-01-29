@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros</title>
+    <style>
+        h1 {
+            font-size: 30px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        table td, table th{
+            border-top: 1px solid #aaa;
+            border-bottom-width: 0px;
+            border-right-width: 0px;
+            border-left-width: 0px;
+            font-size: 24px;
+            padding: 8px;
+            margin: 0px;
+        }
+        table {
+            width: 95%;
+            margin: auto;
+        }
+        table tbody, table thead {
+            padding: 0;
+            margin: 0;
+        }
+        .colorAlternating {
+            background-color: #eee;
+        }
+        .selected {
+            background-color: yellow;
+        }
+        table tr {
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Lista de Livros</u></h1>
+    <table>
+
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Autor</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Percy Jackson E O Ladrao De Raios</td>
+                <td>Rick Riodan</td>
+            </tr>
+            <tr>
+                <td>Percy Jackson e o Mar de Monstros</td>
+                <td>Rick Riodan</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('table tr:odd').each(function(event){
+            $(this).addClass('colorAlternating');
+        });
+        $('table tbody tr').on('dblclick', function(event){
+            if($(this).hasClass('selected')){
+                $(this).removeClass('selected');
+                alert('Livro removido como favorito');
+            } else{
+                $(this).addClass('selected');
+                alert('Livro marcado como favorito');
+            }
+            
+        });
+    </script>
+</body>
+</html>
